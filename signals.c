@@ -1,11 +1,19 @@
 #include<stdio.h>
-#include<stdlib.h>
-
+#include<unistd.h>
+#include <time.h>
 int main()
 {
     while(1)
     {
-        printf("s");
+        time_t currentTime;
+        char *timeString;
+
+        time(&currentTime);
+        timeString = ctime(&currentTime);
+
+        printf(timeString);
+        printf("\n");          
+        fflush(stdout);
         sleep(1);
     }
 }
