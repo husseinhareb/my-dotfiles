@@ -1,0 +1,5 @@
+(defpoll SONG :interval "1s" `scripts/spotify/spotify-song.sh`)
+(defpoll ARTIST :interval "1s" `scripts/spotify/spotify-artist.sh`)
+(defpoll COVER :interval "1s" `scripts/spotify/spotify-artwork.sh`)
+(defpoll STATUS :interval "1s" `scripts/spotify/spotify-status.sh`)
+(defpoll CAVA :interval "1s" `scripts/cava.sh`)
