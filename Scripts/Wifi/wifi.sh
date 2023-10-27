@@ -1,28 +1,10 @@
 #!/bin/bash
 
-# Check if speedtest-cli is installed
-if ! command -v speedtest-cli &>/dev/null; then
-    echo "speedtest-cli is not installed. You can install it using 'pip install speedtest-cli'."
+# Check if iftop is installed
+if ! command -v iftop &>/dev/null; then
+    echo "iftop is not installed. You can install it using your package manager (e.g., 'apt-get install iftop' on Debian/Ubuntu)."
     exit 1
 fi
 
-# Run the speed test
-echo "Running speed test..."
-speedtest-cli --simple > /tmp/speedtest_results.txt
-
-# Check if the speed test was successful
-if [ $? -ne 0 ]; then
-    echo "Speed test failed. Check your internet connection or try again later."
-    exit 1
-fi
-
-# Extract upload and download speeds from the results
-download_speed=$(grep "Download" /tmp/speedtest_results.txt | cut -d " " -f 2)
-upload_speed=$(grep "Upload" /tmp/speedtest_results.txt | cut -d " " -f 2)
-
-# Print the results
-echo "Download Speed: $download_speed"
-echo "Upload Speed: $upload_speed"
-
-# Clean up temporary file
-rm /tmp/speedtest_results.txt
+# Run iftop and capture the output
+sudo iftop -t -s 1 -n -N 2> /dev/null | awk '/Total send rate:/ { upload_speed = $6; } /Total receive rate:/ { download_speed = $6; } END { print "Upload Speed: " upload_speed " / Download Speed: " download_speed; }'
