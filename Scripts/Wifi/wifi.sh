@@ -1,6 +1,13 @@
 #!/bin/bash
-printf '%s\nTIME (s)\tSIGNAL STRENGTH (dBm)\tBITRATE (MBit/s)\n' "$(date --iso-8601=seconds)" >>log
-for ((i=0; i<=60; i=i+5)); do
-    iw dev wlp0s20f3 station dump | awk -vt=$i '$1=="signal:"{s=$2} $2=="bitrate:"{b=$3} END {printf "%d\t%d\t%.1f\n", t, s, b}' >>log
-    sleep 5
+
+while true; do
+    # Use iw to get WiFi information and grep for the bandwidth
+    wifi_info=$(iw dev wlp0s20f3 link | grep "tx bitrate")
+
+    # Extract and display the bandwidth information
+    bandwidth=$(echo $wifi_info | awk '{print $3}')
+    echo "WiFi Bandwidth: $bandwidth"
+
+    # Sleep for one second before the next update
+    sleep 1
 done
