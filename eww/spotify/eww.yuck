@@ -3,7 +3,7 @@
 (defpoll ARTIST :interval "1s" `scripts/spotify/spotify-artist.sh`)
 (defpoll COVER :interval "1s" `scripts/spotify/spotify-artwork.sh`)
 (defpoll STATUS :interval "1s" `scripts/spotify/spotify-status.sh`)
-(defpoll CAVA :interval "1s" `scripts/cava.sh`)
+(deflisten CAVA :interval "1 `scripts/cava.sh`)
 
 (defwidget spotify [] 
 	(box :class "wid_get" :orientation "h" :space-evenly "false" :vexpand "false" :hexpand "false" 
