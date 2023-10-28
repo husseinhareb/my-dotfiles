@@ -12,3 +12,45 @@
 }
  
 
+/** Music *************************************************/
+.album_art {
+	background-size: 220px;
+	min-height: 220px;
+	min-width: 220px;
+	margin: 10px;
+	border-radius: 12px;
+	border-color: #C6A0F6;
+}
+
+.song {
+	color: #8FBCBB;
+	font-size : 20px;
+	font-weight : bold;
+}
+
+.artist {
+	color: #EBCB8B;
+	font-size : 20px;
+	font-weight : normal;
+}
+
+
+.prev {
+	color: #A3BE8C;
+	font-weight: normal;
+	font-size: 32px;
+}
+.play {
+	color: #A3BE8C;
+	font-size: 48px;
+}
+.next {
+	color: #A3BE8C;
+	font-weight: normal;
+	font-size:32px
+}
+
+.cava{
+	color: #6290C8;
+}
+
