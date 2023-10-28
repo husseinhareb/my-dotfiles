@@ -32,7 +32,7 @@
                                :y "300px"
                                :width "240px"
                                :height "262px"
-                               :anchor "top left")
+                               :anchor "top right")
            :stacking "fg"
            :reserve (struts :distance "80px" :side "top")
            :windowtype "dock"
