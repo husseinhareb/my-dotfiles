@@ -38,7 +38,7 @@
                                :stacking "fg"
                                :reserve (struts :distance "40px" :side "top")
                                :windowtype "dock"
-                               :wm-ignore false
+                               :wm-ignore true
 (spotify))
 
 
