@@ -37,8 +37,8 @@
                                :anchor "top left")
                                :stacking "fg"
                                :reserve (struts :distance "40px" :side "top")
-                               :windowtype "normal"
-                               :wm-ignore true
+                               :windowtype "dock"
+                               :wm-ignore false
 (spotify))
 
 
