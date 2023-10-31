@@ -1,0 +1,1 @@
+/home/shtam/.config/eww/spotify/scripts/spotify/image.jpg
