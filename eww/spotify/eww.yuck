@@ -30,8 +30,8 @@
 ;; spotify
 (defwindow spotify
            :monitor 0
-           :geometry (geometry :x "400px"
-                               :y "300px"
+           :geometry (geometry :x "200px"
+                               :y "35px"
                                :width "240px"
                                :height "262px"
                                :anchor "top left")
