@@ -1,27 +1,25 @@
-#! /bin/bash
+#!/bin/bash
 
-
+# Define the character bars and the dictionary for replacements
 bar="▁▂▃▄▅▆▇█"
-dict="s/;//g;"
+replacement_dict="s/;//g;"
 
-# creating "dictionary" to replace char with bar
-i=0
-while [ $i -lt ${#bar} ]
+# Create the dictionary to replace characters with bars
+for ((i=0; i<${#bar}; i++))
 do
-    dict="${dict}s/$i/${bar:$i:1}/g;"
-    i=$((i=i+1))
+    replacement_dict="${replacement_dict}s/$i/${bar:$i:1}/g;"
 done
 
-# make sure to clean pipe
+# Ensure the FIFO pipe is clean
 pipe="/tmp/cava.fifo"
-if [ -p $pipe ]; then
-    unlink $pipe
+if [ -p "$pipe" ]; then
+    unlink "$pipe"
 fi
-mkfifo $pipe
+mkfifo "$pipe"
 
-# write cava config
-config_file="/tmp/waybar_cava_config"
-echo "
+# Define the Cava configuration file
+config_file="/tmp/cava_config"
+cat <<EOF > "$config_file"
 [general]
 bars = 26
 [output]
@@ -29,12 +27,17 @@ method = raw
 raw_target = $pipe
 data_format = ascii
 ascii_max_range = 7
-" > $config_file
+EOF
 
-# run cava in the background
-cava -p $config_file &
+# Run Cava in the background
+cava -p "$config_file" &
 
-# reading data from fifo
+# Read and process data from the FIFO
 while read -r cmd; do
-    echo $cmd | sed $dict
-done < $pipe
+    echo "$cmd" | sed "$replacement_dict"
+done < "$pipe"
+
+# Clean up the FIFO when done (optional)
+if [ -p "$pipe" ]; then
+    unlink "$pipe"
+fi
