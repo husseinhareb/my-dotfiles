@@ -3,30 +3,29 @@
     all: unset;
   }
   
-  // Variable Color's
-  $background: #1A1B26;
-  $foreground: #A9B1D6;
-  
-  $black: #24283B;
-  $gray: #565F89;
-  $red: #F7768E;
-  $green: #73DACA;
-  $yellow: #E0AF68;
-  $blue: #7AA2F7;
-  $magenta: #BB9AF7;
-  $cyan: #7DCFFF;
-  $white: $foreground;
+// Variable Color's
+$background: #1A1B26;
+$foreground: #A9B1D6;
+$black: #24283B;
+$gray: #565F89;
+$red: #F7768E;
+$green: #73DACA;
+$yellow: #E0AF68;
+$blue: #7AA2F7;
+$magenta: #BB9AF7;
+$cyan: #7DCFFF;
+$white: $foreground;
   
 
-    // EWW BAR
-    .eww_bar{
-        background-color: $background;
-        padding: .3rem;
-      }
+// EWW BAR
+.eww_bar{
+    background-color: $background;
+    padding: .3rem;
+}
       
     
-  // Calendar
-  .cal-box {
+// Calendar
+.cal-box {
     background-color: $black;
     font-family: Comic Mono;
     font-size: 1em;
@@ -44,5 +43,5 @@
             margin-left: 10px;
         }
     }
-  }
+}
   
