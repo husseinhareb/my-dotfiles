@@ -11,3 +11,16 @@ if [[ ! `pidof eww` ]]; then
 	sleep 1
 fi
 
+## Open widgets 
+run_eww() {
+	${EWW} --config "$CFG" open calendar 
+}
+
+## Launch or close widgets accordingly
+if [[ ! -f "$FILE" ]]; then
+	touch "$FILE"
+	run_eww
+else
+	${EWW} --config "$CFG" close  calendar place 
+	rm "$FILE"
+fi
