@@ -1,4 +1,9 @@
-;;Widget Section's
+(defpoll calendar_day :interval "10h"
+    "date '+%d'")
+(defpoll calendar_month :interval "10h"
+    "scripts/calendar")
+(defpoll calendar_year :interval "10h"
+    "date '+%Y'")
 
 ;; Calendar Widgets ;;
 (defwidget cal []
@@ -9,20 +14,14 @@
               :day calendar_day
               :month calendar_month
               :year calendar_year))))
-(defpoll calendar_day :interval "10h"
-    "date '+%d'")
-(defpoll calendar_month :interval "10h"
-    "scripts/calendar")
-(defpoll calendar_year :interval "10h"
-    "date '+%Y'")
 
 
 ;;Window Section's
 
 ;; Calendar Windows ;;
 (defwindow calendar
-    :geometry (geometry :x "70px"
-                        :y "30px"
-                        :width "270px"
+    :geometry (geometry :x "50px"
+                        :y "35px"
+                        :width "250px"
                         :height "60px")
 (cal))
