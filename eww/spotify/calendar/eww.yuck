@@ -1,4 +1,4 @@
-;;Widget Section's							 ;;
+;;Widget Section's
 
 ;; Calendar Widgets ;;
 (defwidget cal []
@@ -17,7 +17,7 @@
     "date '+%Y'")
 
 
-;;Window Section's							 ;;
+;;Window Section's
 
 ;; Calendar Windows ;;
 (defwindow calendar
