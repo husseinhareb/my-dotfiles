@@ -44,4 +44,25 @@ $white: $foreground;
         }
     }
 }
+
+calendar:selected {
+    color: $blue;
+}
   
+  calendar.header {
+  color: $blue;
+  font-weight: bold;
+}
+  
+  calendar.button {
+  color: $magenta;
+}
+  
+  calendar.highlight {
+  color: $magenta;
+  font-weight: bold;
+}
+  
+  calendar:indeterminate {
+  color: $background;
+}
