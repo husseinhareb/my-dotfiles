@@ -1,0 +1,23 @@
+
+.volume_bar, .brightness_bar, scale trough {
+	all: unset;
+	background-color: #282C34;
+	border-radius: 10px;
+	min-height: 18px;
+	min-width: 220px;
+}
+
+.volume_bar, .brightness_bar, scale trough highlight {
+	all: unset;
+	border-radius: 12px;
+}
+
+.volume_bar scale trough highlight {
+	background-color: #5c64ff;
+}
+.brightness_bar scale trough highlight {
+	background-color: #e0af68;
+}
+.mic_bar scale trough highlight {
+	background-color: #85da6c;
+}
