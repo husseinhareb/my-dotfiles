@@ -1,0 +1,58 @@
+
+;; System vars
+(defpoll VOLUME :interval "1s" `scripts/system.sh volume`)
+(defpoll BRIGHTNESS :interval "1s" `scripts/system.sh brightness`)
+(defpoll MIC :interval "1s" `scripts/system.sh mic`)
+(defpoll NOTI :interval "1s" `scripts/notification/noti.sh)
+
+;;WIDGETS------------------------------------------------------------------------------------------------------------------------
+
+
+(defwidget notification [] 
+	(box :class "wid_get" :vexpand "false" :hexpand "false" 
+		(button :class "reboot" :style "background-image: url('${NOTI}');" :onclick "scripts/notification/noti.sh")))
+
+;; system
+(defwidget system [] 
+	(box :class "wid_get" :vexpand "false" :hexpand "false" 
+		(box :orientation "v" :spacing 35 :halign "center" :valign "center" :space-evenly "false" :vexpand "false" :hexpand "false"     
+			(box :class "volume_bar" :orientation "h" :spacing 20 :space-evenly "false" :vexpand "false" :hexpand "false" 
+				(label :class "iconvolume" :text "󰕾")
+				(scale :min 0 :max 100 :value VOLUME :onchange "pactl set-sink-volume @DEFAULT_SINK@ {}%" ))
+			(box :class "brightness_bar" :orientation "h" :spacing 20 :space-evenly "false" :vexpand "false" :hexpand "false" 
+				(label :class "iconbrightness" :text "󰃟")
+				(scale :min 0 :max 100 :value BRIGHTNESS :onchange "brightnessctl set {}%"))
+		  (box :class "mic_bar" :orientation "h" :spacing 20 :space-evenly "false" :vexpand "false" :hexpand "false" 
+				(label :class "iconmic" :text "")
+				(scale :min 0 :max 100 :value MIC :onchange "pactl set-source-volume 0 {}%")))))
+
+;;WINDOWS------------------------------------------------------------------------------------------------------------------------
+;; notification
+(defwindow notification
+           :monitor 0
+           :geometry (geometry :x "1630px"
+                               :y "4px"
+                               :width "100px"
+                               :height "50px"
+                               :anchor "top left")
+           :stacking "fg"
+           :reserve (struts :distance "80px" :side "top")
+           :windowtype "dock"
+           :wm-ignore true
+(notification))
+
+
+;; system
+(defwindow system
+           :monitor 0
+           :geometry (geometry :x "1630px"
+                               :y "108px"
+                               :width "220px"
+                               :height "262px"
+                               :anchor "top left")
+           :stacking "fg"
+           :reserve (struts :distance "80px" :side "top")
+           :windowtype "dock"
+           :wm-ignore true
+(system))
+
