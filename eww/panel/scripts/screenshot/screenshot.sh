@@ -1,1 +1,0 @@
-scrot -s ~/Pictures/Screenshots/screenshot.png
