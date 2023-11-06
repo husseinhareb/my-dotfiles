@@ -1,23 +1,29 @@
-
-.volume_bar, .brightness_bar, scale trough {
+/** Global *******************************************/
+*{
 	all: unset;
-	background-color: #282C34;
-	border-radius: 10px;
-	min-height: 18px;
-	min-width: 220px;
+	font-family: feather;
+	font-family: "JetBrains Mono";
+	color: #151515;
 }
 
-.volume_bar, .brightness_bar, scale trough highlight {
-	all: unset;
-	border-radius: 12px;
+/** Bar ***********************************/
+.wid_get {
+	background-color: #1E1D2D;
+	border: 1px solid #fe0000;
+}
+ 
+
+
+.noti{
+    background-repeat: no-repeat;
+	background-size: 40px;
+	min-height: 40px;
+	min-width: 40px;
 }
 
-.volume_bar scale trough highlight {
-	background-color: #5c64ff;
-}
-.brightness_bar scale trough highlight {
-	background-color: #e0af68;
-}
-.mic_bar scale trough highlight {
-	background-color: #85da6c;
+.screenshot{
+    background-repeat: no-repeat;
+	background-size: 40px;
+	min-height: 40px;
+	min-width: 40px;
 }
