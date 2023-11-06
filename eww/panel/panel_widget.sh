@@ -13,7 +13,7 @@ fi
 
 ## Open widgets 
 run_eww() {
-	${EWW} --config "$CFG" open-many  system notification
+	${EWW} --config "$CFG" open-many  system notification screenshot
 }
 
 ## Launch or close widgets accordingly
@@ -21,6 +21,6 @@ if [[ ! -f "$FILE" ]]; then
 	touch "$FILE"
 	run_eww
 else
-	${EWW} --config "$CFG" close  system notification
+	${EWW} --config "$CFG" close  system notification screenshot
 	rm "$FILE"
 fi
