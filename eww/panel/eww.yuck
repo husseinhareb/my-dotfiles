@@ -18,6 +18,22 @@
 	(box :class "wid_get" :vexpand "false" :hexpand "false" 
 		(button :class "screenshot" :style "background-image: url('${SCREENSHOT}');" :onclick "scripts/screenshot/screenshot.sh" )))
 
+
+(defwidget volume [] 
+	(box :class "wid_get" :vexpand "false" :hexpand "false" 
+		(button :class "screenshot" :style "background-image: url('${SCREENSHOT}');" :onclick "scripts/screenshot/screenshot.sh" )))
+
+(defwidget mic [] 
+	(box :class "wid_get" :vexpand "false" :hexpand "false" 
+		(button :class "noti" :style "background-image: url('${NOTI}');" :onclick "scripts/notification/noti.sh --toggle")))
+
+(defwidget weather [] 
+	(box :class "wid_get" :vexpand "false" :hexpand "false" 
+		(button :class "noti" :style "background-image: url('${NOTI}');" :onclick "scripts/notification/noti.sh --toggle")))
+(defwidget battery [] 
+	(box :class "wid_get" :vexpand "false" :hexpand "false" 
+		(button :class "noti" :style "background-image: url('${NOTI}');" :onclick "scripts/notification/noti.sh --toggle")))
+
 ;; system
 (defwidget system [] 
 	(box :class "wid_get" :vexpand "false" :hexpand "false" 
@@ -47,10 +63,11 @@
            :wm-ignore true
 (notification))
 
+
 ;; screenshot
 (defwindow screenshot
            :monitor 0
-           :geometry (geometry :x "1720px"
+           :geometry (geometry :x "1810px"
                                :y "40px"
                                :width "80px"
                                :height "40px"
@@ -61,11 +78,73 @@
            :wm-ignore true
 (screenshot))
 
+
+;; volume
+(defwindow volume
+           :monitor 0
+           :geometry (geometry :x "1720px"
+                               :y "40px"
+                               :width "80px"
+                               :height "40px"
+                               :anchor "top left")
+           :stacking "fg"
+           :reserve (struts :distance "80px" :side "top")
+           :windowtype "dock"
+           :wm-ignore true
+(volume))
+
+
+;; mic
+(defwindow mic
+           :monitor 0
+           :geometry (geometry :x "1630px"
+                               :y "100px"
+                               :width "80px"
+                               :height "40px"
+                               :anchor "top left")
+           :stacking "fg"
+           :reserve (struts :distance "80px" :side "top")
+           :windowtype "dock"
+           :wm-ignore true
+(mic))
+
+
+;; battery
+(defwindow battery
+           :monitor 0
+           :geometry (geometry :x "1810px"
+                               :y "100px"
+                               :width "80px"
+                               :height "40px"
+                               :anchor "top left")
+           :stacking "fg"
+           :reserve (struts :distance "80px" :side "top")
+           :windowtype "dock"
+           :wm-ignore true
+(battery))
+
+
+;; weather
+(defwindow weather
+           :monitor 0
+           :geometry (geometry :x "1720px"
+                               :y "100px"
+                               :width "80px"
+                               :height "40px"
+                               :anchor "top left")
+           :stacking "fg"
+           :reserve (struts :distance "80px" :side "top")
+           :windowtype "dock"
+           :wm-ignore true
+(weather))
+
+
+
 ;; system
 (defwindow system
            :monitor 0
            :geometry (geometry :x "1630px"
-                               :y "108px"
+                               :y "150px"
                                :width "220px"
                                :height "262px"
                                :anchor "top left")
