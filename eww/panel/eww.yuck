@@ -1,6 +1,10 @@
 
-;; System vars
+;; Volume vars
 (defpoll VOLUME :interval "1s" `scripts/volume/volume.sh`)
+
+;;Weather
+(defpoll WEATHER :interval "1s" `scripts/weather/weather.sh`)
+
 (defpoll BRIGHTNESS :interval "1s" `scripts/system.sh brightness`)
 (defpoll MIC :interval "1s" `scripts/system.sh mic`)
 
@@ -29,8 +33,8 @@
 
 (defwidget weather [] 
 	(box :class "wid_get" :vexpand "false" :hexpand "false" 
-		(button :class "noti" :style "background-image: url('${NOTI}');" :onclick "scripts/notification/noti.sh --toggle")))
-(defwidget battery [] 
+		    (label :halign "center" :class "volume" :wrap "true" :limit-width 15 :text WEATHER)))
+(defwidget brightness [] 
 	(box :class "wid_get" :vexpand "false" :hexpand "false" 
 		(button :class "noti" :style "background-image: url('${NOTI}');" :onclick "scripts/notification/noti.sh --toggle")))
 
@@ -109,8 +113,8 @@
 (mic))
 
 
-;; battery
-(defwindow battery
+;; brightness
+(defwindow brightness
            :monitor 0
            :geometry (geometry :x "1810px"
                                :y "100px"
@@ -121,7 +125,7 @@
            :reserve (struts :distance "80px" :side "top")
            :windowtype "dock"
            :wm-ignore true
-(battery))
+(brightness))
 
 
 ;; weather
