@@ -116,8 +116,10 @@
 ;; brightness
 (defwindow brightness
            :monitor 0
-           :geometry (geometry :x "1810px"
-                               :y "100px"
+           :geometry (geometry 
+                                :x "1630px"
+                               :y "40px"
+                      
                                :width "80px"
                                :height "40px"
                                :anchor "top left")
