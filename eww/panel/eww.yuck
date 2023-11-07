@@ -1,12 +1,14 @@
 
 ;; Volume vars
-(defpoll VOLUME :interval "1s" `scripts/volume/volume.sh`)
+(defpoll VOLUME :interval "1s" `scripts/panel/panel.sh --volume`)
 
 ;;Weather
-(defpoll WEATHER :interval "1s" `scripts/weather/weather.sh`)
+(defpoll WEATHER :interval "1s" `scripts/panel/panel.sh --weather`)
 
-(defpoll BRIGHTNESS :interval "1s" `scripts/system.sh brightness`)
-(defpoll MIC :interval "1s" `scripts/system.sh mic`)
+;;Brightness 
+(defpoll BRIGHTNESS :interval "1s" `scripts/panel/panel.sh --brightness`)
+;;Mic
+(defpoll MIC :interval "1s" `scripts/panel/panel.sh --mic`)
 
 (defpoll NOTI :interval "1s" `scripts/notification/noti.sh --status`)
 (defvar SCREENSHOT "images/icons/screenshot/screenshot.png")
@@ -16,7 +18,7 @@
 
 (defwidget notification [] 
 	(box :class "wid_get" :vexpand "false" :hexpand "false" 
-		(button :class "noti" :style "background-image: url('${NOTI}');" :onclick "scripts/notification/noti.sh --toggle")))
+		    (label :halign "center" :class "volume" :wrap "true" :limit-width 15 :text NOTI)))
 
 (defwidget screenshot [] 
 	(box :class "wid_get" :vexpand "false" :hexpand "false" 
@@ -29,14 +31,14 @@
 
 (defwidget mic [] 
 	(box :class "wid_get" :vexpand "false" :hexpand "false" 
-		(button :class "noti" :style "background-image: url('${NOTI}');" :onclick "scripts/notification/noti.sh --toggle")))
+		    (label :halign "center" :class "volume" :wrap "true" :limit-width 15 :text MIC)))
 
 (defwidget weather [] 
 	(box :class "wid_get" :vexpand "false" :hexpand "false" 
 		    (label :halign "center" :class "volume" :wrap "true" :limit-width 15 :text WEATHER)))
 (defwidget brightness [] 
 	(box :class "wid_get" :vexpand "false" :hexpand "false" 
-		(button :class "noti" :style "background-image: url('${NOTI}');" :onclick "scripts/notification/noti.sh --toggle")))
+		    (label :halign "center" :class "volume" :wrap "true" :limit-width 15 :text BRIGHTNESS)))
 
 ;; system
 (defwidget system [] 
@@ -56,8 +58,9 @@
 ;; notification
 (defwindow notification
            :monitor 0
-           :geometry (geometry :x "1630px"
-                               :y "40px"
+           :geometry (geometry 
+                               :x "1810px"
+                               :y "100px"
                                :width "80px"
                                :height "40px"
                                :anchor "top left")
@@ -71,8 +74,8 @@
 ;; screenshot
 (defwindow screenshot
            :monitor 0
-           :geometry (geometry :x "1810px"
-                               :y "40px"
+           :geometry (geometry :x "1630px"
+                               :y "100px"
                                :width "80px"
                                :height "40px"
                                :anchor "top left")
@@ -88,6 +91,7 @@
            :monitor 0
            :geometry (geometry :x "1720px"
                                :y "40px"
+                               
                                :width "80px"
                                :height "40px"
                                :anchor "top left")
@@ -101,8 +105,9 @@
 ;; mic
 (defwindow mic
            :monitor 0
-           :geometry (geometry :x "1630px"
-                               :y "100px"
+           :geometry (geometry 
+                               :x "1810px"
+                               :y "40px"
                                :width "80px"
                                :height "40px"
                                :anchor "top left")
@@ -117,9 +122,8 @@
 (defwindow brightness
            :monitor 0
            :geometry (geometry 
-                                :x "1630px"
+                               :x "1630px"
                                :y "40px"
-                      
                                :width "80px"
                                :height "40px"
                                :anchor "top left")
