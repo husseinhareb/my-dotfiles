@@ -1,6 +1,6 @@
 
 ;; System vars
-(defpoll VOLUME :interval "1s" `scripts/system.sh volume`)
+(defpoll VOLUME :interval "1s" `scripts/volume/volume.sh`)
 (defpoll BRIGHTNESS :interval "1s" `scripts/system.sh brightness`)
 (defpoll MIC :interval "1s" `scripts/system.sh mic`)
 
@@ -21,7 +21,7 @@
 
 (defwidget volume [] 
 	(box :class "wid_get" :vexpand "false" :hexpand "false" 
-		(button :class "screenshot" :style "background-image: url('${SCREENSHOT}');" :onclick "scripts/screenshot/screenshot.sh" )))
+		    (label :halign "center" :class "volume" :wrap "true" :limit-width 15 :text VOLUME)))
 
 (defwidget mic [] 
 	(box :class "wid_get" :vexpand "false" :hexpand "false" 

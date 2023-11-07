@@ -21,4 +21,4 @@ else
 fi
 
 # Display the volume icon and level
-echo "$icon$volume%"
+echo "$icon $volume%"
