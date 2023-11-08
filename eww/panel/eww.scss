@@ -3,7 +3,6 @@
 	all: unset;
 	font-family: feather;
 	font-family: "JetBrains Mono";
-	color: #151515;
 }
 
 /** Bar ***********************************/
@@ -19,8 +18,7 @@
 	background-size: 40px;
 	min-height: 40px;
 	min-width: 40px;
-	color: white;
-	font-size: 30px;
+	color: white
 }
 
 .screenshot{
@@ -32,26 +30,28 @@
 
 
 .iconmic, .iconvolume, .iconbrightness{
-	font-size : 28px;
+	font-size : 18px;
 	font-weight : normal;
 }
 .iconmic {
-	color: #85da6c;
+	color: #f6f6ff;
+	margin: 10px;
 }
 .iconvolume {
-	color: #5c64ff;
+	color: #f6f6ff;
+	margin: 10px;
 }
 .iconbrightness {
-	color: #f4bd6b;
+	color: #f6f6ff;
+	margin: 10px;
 }
 
 
 .volume_bar, .brightness_bar, scale trough {
 	all: unset;
-	background-color: #282C34;
-	border-radius: 10px;
-	min-height: 18px;
-	min-width: 220px;
+	background-color: #454547;
+	min-height: 10px;
+	min-width: 180px;
 }
 
 .volume_bar, .brightness_bar, scale trough highlight {
@@ -60,15 +60,20 @@
 }
 
 .volume_bar scale trough highlight {
-	background-color: #5c64ff;
+	background-color: #f6f6ff;
 }
 .brightness_bar scale trough highlight {
-	background-color: #e0af68;
+	background-color: #f6f6ff;
 }
 .mic_bar scale trough highlight {
-	background-color: #85da6c;
+	background-color: #f6f6ff;
 }
-
+.volume_bar, .brightness_bar, .mic_bar {
+	// Other styles...
+	margin-top: -40px;
+	margin-bottom: -40px; // Reduced top margin
+  }
+  
 .volume{
 	color: white;
 }
