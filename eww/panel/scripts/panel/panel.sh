@@ -28,33 +28,43 @@ if [ "$1" == "--brightness" ]; then
 fi
 
 if [ "$1" == "--volume" ]; then
-  # Get the current volume level
-  volume=$(pactl list sinks | grep 'Volume:' | head -n 1 | awk '{print $5}' | sed 's/%//')
+# Get the current volume level
+volume=$(pactl list sinks | grep 'Volume:' | head -n 1 | awk '{print $5}' | sed 's/%//')
 
-  # Define volume icons
-  mute_icon="󰖁"
-  low_icon="󰕿"
-  medium_icon="󰖀"
-  high_icon="󰕾"
+# Get mute status
+mute_status=$(pactl list sinks | grep 'Mute:' | awk '{print $2}')
 
-  # Check if the speaker is muted
-  if [ $volume -eq 0 ]; then
+# Define volume icons
+mute_icon="󰖁"
+low_icon="󰕿"
+medium_icon="󰖀"
+high_icon="󰕾"
+
+# Check if the speaker is muted
+if [ "$mute_status" = "yes" ]; then
     icon=$mute_icon
-  elif [ $volume -lt 30 ]; then
-    icon=$low_icon
-  elif [ $volume -lt 70 ]; then
-    icon=$medium_icon
-  else
-    icon=$high_icon
-  fi
+    volume="Muted"
+else
+    if [ $volume -eq 0 ]; then
+        icon=$mute_icon
+    elif [ $volume -lt 30 ]; then
+        icon=$low_icon
+    elif [ $volume -lt 70 ]; then
+        icon=$medium_icon
+    else
+        icon=$high_icon
+    fi
+fi
 
-  # Display the volume icon and level
-  echo "$icon $volume%"
+# Display the volume icon and level
+echo "$icon $volume%"
+
 fi
 
 if [ "$1" == "--weather" ]; then
   python3 $HOME/.config/eww/panel/scripts/weather/weather.py
 fi
+
 
 if [ "$1" == "--mic" ]; then
   mic_source=$(pactl info | grep "Default Source:" | awk '{print $3}')
