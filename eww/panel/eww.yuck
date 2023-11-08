@@ -18,11 +18,11 @@
 
 (defwidget notification [] 
 	(box :class "wid_get" :vexpand "false" :hexpand "false" 
-		    (label :halign "center" :class "volume" :wrap "true" :limit-width 15 :text NOTI)))
+		    (button :halign "center" :class "noti" :wrap "true" :limit-width 15 :onclick "scripts/notification/noti.sh --toggle" "${NOTI}")))
 
 (defwidget screenshot [] 
 	(box :class "wid_get" :vexpand "false" :hexpand "false" 
-		(button :class "screenshot" :style "background-image: url('${SCREENSHOT}');" :onclick "scripts/screenshot/screenshot.sh" )))
+		    (button :halign "center" :class "noti" :wrap "true" :limit-width 15 :onclick "/usr/bin/scrot -s " "󰻛")))
 
 
 (defwidget volume [] 
@@ -31,7 +31,7 @@
 
 (defwidget mic [] 
 	(box :class "wid_get" :vexpand "false" :hexpand "false" 
-		    (label :halign "center" :class "volume" :wrap "true" :limit-width 15 :text MIC)))
+		    (button :halign "center" :class "volume" :wrap "true" :limit-width 15 :onclick "scripts/panel/mictoggle.sh" "${MIC}")))
 
 (defwidget weather [] 
 	(box :class "wid_get" :vexpand "false" :hexpand "false" 
