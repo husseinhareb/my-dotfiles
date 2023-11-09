@@ -164,3 +164,17 @@
            :wm-ignore true
 (system))
 
+
+;; resources
+(defwindow resources
+           :monitor 0
+           :geometry (geometry :x "1391px"
+                               :y "480px"
+                               :width "220px"
+                               :height "262px"
+                               :anchor "top left")
+           :stacking "fg"
+           :reserve (struts :distance "80px" :side "top")
+           :windowtype "dock"
+           :wm-ignore false
+(resources))
