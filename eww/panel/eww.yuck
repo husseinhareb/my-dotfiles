@@ -11,7 +11,17 @@
 (defpoll MIC :interval "1s" `scripts/panel/panel.sh --mic`)
 
 (defpoll NOTI :interval "1s" `scripts/notification/noti.sh --status`)
-(defvar SCREENSHOT "images/icons/screenshot/screenshot.png")
+;; System vars
+(defpoll VOLUME_LEVEL :interval "1s" `scripts/panel/system.sh volume`)
+(defpoll BRIGHTNESS_LEVEL :interval "1s" `scripts/panel/system.sh brightness`)
+(defpoll MIC_LEVEL :interval "1s" `scripts/panel/system.sh mic`)
+
+
+;; Resources vars
+(defpoll CPU_USAGE :interval "1s" `scripts/sys_info.sh --cpu`)
+(defpoll MEM_USAGE :interval "1s" `scripts/sys_info.sh --mem`)
+(defpoll DISK_USAGE :interval "1s" `scripts/sys_info.sh --disk`)
+
 
 ;;WIDGETS------------------------------------------------------------------------------------------------------------------------
 
@@ -27,7 +37,7 @@
 
 (defwidget volume [] 
 	(box :class "wid_get" :vexpand "false" :hexpand "false" 
-		    (label :halign "center" :class "volume" :wrap "true" :limit-width 15 :text VOLUME)))
+		    (button :halign "center" :class "noti" :wrap "true" :limit-width 15 :onclick "scripts/panel/volumetoggle.sh " "${VOLUME}")))
 
 (defwidget mic [] 
 	(box :class "wid_get" :vexpand "false" :hexpand "false" 
@@ -46,13 +56,29 @@
 		(box :orientation "v" :spacing 35 :halign "center" :valign "center" :space-evenly "false" :vexpand "false" :hexpand "false"     
 			(box :class "volume_bar" :orientation "h" :spacing 20 :space-evenly "false" :vexpand "false" :hexpand "false" 
 				(label :class "iconvolume" :text "󰕾")
-				(scale :min 0 :max 100 :value VOLUME :onchange "pactl set-sink-volume @DEFAULT_SINK@ {}%" ))
+				(scale :min 0 :max 100 :value VOLUME_LEVEL :onchange "pactl set-sink-volume @DEFAULT_SINK@ {}%" ))
 			(box :class "brightness_bar" :orientation "h" :spacing 20 :space-evenly "false" :vexpand "false" :hexpand "false" 
 				(label :class "iconbrightness" :text "󰃟")
-				(scale :min 0 :max 100 :value BRIGHTNESS :onchange "brightnessctl set {}%"))
+				(scale :min 0 :max 100 :value BRIGHTNESS_LEVEL :onchange "brightnessctl set {}%"))
 		  (box :class "mic_bar" :orientation "h" :spacing 20 :space-evenly "false" :vexpand "false" :hexpand "false" 
 				(label :class "iconmic" :text "")
-				(scale :min 0 :max 100 :value MIC :onchange "pactl set-source-volume 0 {}%")))))
+				(scale :min 0 :max 100 :value MIC_LEVEL :onchange "pactl set-source-volume 0 {}%")))))
+
+
+
+(defwidget resources [] 
+		(box :class "wid_get"
+				(box :class "res_box" :orientation "v" :valign "center" :halign "center" :spacing 15 :space-evenly "false"
+					(box :class "res_circle" :orientation "v" :valign "center" :halign "center"
+						(circular-progress :class "res_cpu" :value CPU_USAGE :thickness 5
+							(label :class "res_circle_small" :text "CPU")))
+					(label :class "res_text" :valign "end" :halign "center" :text "${CPU_USAGE}%"))
+				(box :class "res_box" :orientation "v" :valign "center" :halign "center" :spacing 15 :space-evenly "false"
+					(box :class "res_circle" :orientation "v" :valign "center" :halign "center"
+						(circular-progress :class "res_mem" :value MEM_USAGE :thickness 5
+							(label :class "res_circle_small" :text "MEMORY")))
+					(label :class "res_text" :valign "end" :halign "center" :text "${MEM_USAGE}%"))))
+
 
 ;;WINDOWS------------------------------------------------------------------------------------------------------------------------
 ;; notification
@@ -60,7 +86,7 @@
            :monitor 0
            :geometry (geometry 
                                :x "1810px"
-                               :y "100px"
+                               :y "90px"
                                :width "80px"
                                :height "40px"
                                :anchor "top left")
@@ -75,7 +101,7 @@
 (defwindow screenshot
            :monitor 0
            :geometry (geometry :x "1630px"
-                               :y "100px"
+                               :y "90px"
                                :width "80px"
                                :height "40px"
                                :anchor "top left")
@@ -138,7 +164,7 @@
 (defwindow weather
            :monitor 0
            :geometry (geometry :x "1720px"
-                               :y "100px"
+                               :y "90px"
                                :width "80px"
                                :height "40px"
                                :anchor "top left")
@@ -155,8 +181,8 @@
            :monitor 0
            :geometry (geometry :x "1630px"
                                :y "150px"
-                               :width "220px"
-                               :height "262px"
+                               :width "260px"
+                               :height "122px"
                                :anchor "top left")
            :stacking "fg"
            :reserve (struts :distance "80px" :side "top")
@@ -164,11 +190,10 @@
            :wm-ignore true
 (system))
 
-
 ;; resources
 (defwindow resources
            :monitor 0
-           :geometry (geometry :x "1391px"
+           :geometry (geometry :x "1630px"
                                :y "480px"
                                :width "220px"
                                :height "262px"
@@ -176,5 +201,5 @@
            :stacking "fg"
            :reserve (struts :distance "80px" :side "top")
            :windowtype "dock"
-           :wm-ignore false
+           :wm-ignore true
 (resources))
