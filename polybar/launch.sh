@@ -1,6 +1,5 @@
 (polybar power)&
 (polybar clock)&
 (polybar spotify)&
+(polybar panel)&
 (polybar settings)&
-(polybar sound)&
-(polybar weather)&
