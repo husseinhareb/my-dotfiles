@@ -77,3 +77,43 @@
 .volume{
 	color: white;
 }
+
+
+.res_box {
+	background-color: #9484ac;
+	border-radius: 12px;
+	padding: 14px 18px 14px 18px;
+}
+
+.res_circle {
+	background-color: #e7e2e2;
+	border: 0px solid #161616;
+	border-radius: 100%;
+	padding: 0px;
+}
+
+.res_circle_small {
+	background-color: #b7a4d3;
+	border: 0px solid #161616;
+	border-radius: 100%;
+	padding: 35px;
+}
+
+.res_text {
+	background-color: #E6E1D7;
+	border: 1px solid #161616;
+	border-radius: 16px;
+	font-size : 14px;
+	padding: 0px 8px 0px 8px;
+	margin: 0px 0px 0px 0px;
+	font-weight : bold;
+}
+
+.res_cpu {
+	color: #FD6B85;
+}
+
+.res_mem {
+	color: #6f57f5;
+}
+
