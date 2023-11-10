@@ -1,0 +1,27 @@
+(defpoll calendar_day :interval "10h"
+    "date '+%d'")
+(defpoll calendar_month :interval "10h"
+    "scripts/calendar")
+(defpoll calendar_year :interval "10h"
+    "date '+%Y'")
+
+;; Calendar Widgets ;;
+(defwidget cal []
+    (box :class "cal-box"
+         :orientation "v"
+    (box :class "cal-inner-box"
+    (calendar :class "cal"
+              :day calendar_day
+              :month calendar_month
+              :year calendar_year))))
+
+
+;;Window Section's
+
+;; Calendar Windows ;;
+(defwindow calendar
+    :geometry (geometry :x "50px"
+                        :y "35px"
+                        :width "250px"
+                        :height "60px")
+(cal))
