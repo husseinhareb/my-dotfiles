@@ -1,0 +1,20 @@
+;; power buttons
+(defwidget powermenu [] 
+	(box :class "wid_get" :vexpand "false" :hexpand "false" :orientation "v"
+		(button :class "btn_logout" :onclick "qtile --exit" "")
+		(button :class "btn_sleep" :onclick "systemctl suspend" "")
+		(button :class "btn_restart" :onclick "systemctl reboot" "")
+		(button :class "btn_poweroff" :onclick "systemctl poweroff" "")))
+
+
+
+;;---------------------------------------------------------------------------------------------------------------------------
+
+;; powermenu
+(defwindow powermenu :stacking "fg" :focusable "false" 
+	    :geometry (geometry :x 2
+							:y 38
+							:width 41
+							:height 255)
+					(powermenu))
+
