@@ -13,7 +13,7 @@ fi
 
 ## Open widgets 
 run_eww() {
-	${EWW} --config "$CFG" open calendar 
+	${EWW} --config "$CFG" open battery 
 }
 
 ## Launch or close widgets accordingly
@@ -21,6 +21,6 @@ if [[ ! -f "$FILE" ]]; then
 	touch "$FILE"
 	run_eww
 else
-	${EWW} --config "$CFG" close  calendar place 
+	${EWW} --config "$CFG" close  battery
 	rm "$FILE"
 fi
