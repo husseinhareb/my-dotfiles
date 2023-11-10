@@ -1,12 +1,21 @@
 ;;battery vars
-(deflisten LOGO `scripts/logo.sh`)
+(defpoll LOGO :interval "1m" `scripts/logo.sh`)
+(defpoll CYCLES :interval "24h" `scripts/battery.sh --cycles`)
+(defpoll STATE :interval "24h" `scripts/battery.sh --state`)
+(defpoll PERC :interval "24h" `scripts/battery.sh --perc`)
+(defpoll ENERGY :interval "24h" `scripts/battery.sh --energy`)
+(defpoll RATE :interval "24h" `scripts/battery.sh --rate`)
 
 
-
-;; power buttons
+;; battery 
 (defwidget battery [] 
 	(box :class "wid_get" :vexpand "false" :hexpand "false" :orientation "v"
-		(label :class "btn_logout" :text LOGO)))
+		(label :class "battery_logo" :text LOGO)
+		(label :class "text" :text CYCLES)
+		(label :class "text" :text STATE)
+		(label :class "text" :text PERC)
+		(label :class "text" :text ENERGY)
+		(label :class "text" :text RATE)))
 
 
 
@@ -14,7 +23,7 @@
 
 ;; battery
 (defwindow battery :stacking "fg" :focusable "false" 
-	    :geometry (geometry :x 2
+	    :geometry (geometry :x 1272
 							:y 38
 							:width 41
 							:height 255)
