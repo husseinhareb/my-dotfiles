@@ -1,0 +1,1 @@
+python3 $HOME/.config/eww/battery/scripts/battery.py

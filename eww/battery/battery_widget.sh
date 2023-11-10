@@ -1,8 +1,8 @@
 #!/bin/bash
 
 ## Files and CMD
-FILE="$HOME/.cache/eww_launch.calendar"
-CFG="$HOME/.config/eww/calendar/"
+FILE="$HOME/.cache/eww_launch.battery"
+CFG="$HOME/.config/eww/battery/"
 EWW=`which eww`
 
 ## Run eww daemon if not running already

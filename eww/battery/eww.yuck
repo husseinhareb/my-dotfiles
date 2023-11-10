@@ -1,27 +1,21 @@
-(defpoll calendar_day :interval "10h"
-    "date '+%d'")
-(defpoll calendar_month :interval "10h"
-    "scripts/calendar")
-(defpoll calendar_year :interval "10h"
-    "date '+%Y'")
-
-;; Calendar Widgets ;;
-(defwidget cal []
-    (box :class "cal-box"
-         :orientation "v"
-    (box :class "cal-inner-box"
-    (calendar :class "cal"
-              :day calendar_day
-              :month calendar_month
-              :year calendar_year))))
+;;battery vars
+(deflisten LOGO `scripts/logo.sh`)
 
 
-;;Window Section's
 
-;; Calendar Windows ;;
-(defwindow calendar
-    :geometry (geometry :x "50px"
-                        :y "35px"
-                        :width "250px"
-                        :height "60px")
-(cal))
+;; power buttons
+(defwidget battery [] 
+	(box :class "wid_get" :vexpand "false" :hexpand "false" :orientation "v"
+		(label :class "btn_logout" :text LOGO)))
+
+
+
+;;---------------------------------------------------------------------------------------------------------------------------
+
+;; battery
+(defwindow battery :stacking "fg" :focusable "false" 
+	    :geometry (geometry :x 2
+							:y 38
+							:width 41
+							:height 255)
+					(battery))

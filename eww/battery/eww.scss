@@ -1,68 +1,28 @@
-// Global
+
+
+/** Global *******************************************/
 *{
-    all: unset;
-  }
-  
-// Variable Color's
-$background: #1A1B26;
-$foreground: #A9B1D6;
-$black: #24283B;
-$gray: #565F89;
-$red: #F7768E;
-$green: #73DACA;
-$yellow: #E0AF68;
-$blue: #7AA2F7;
-$magenta: #BB9AF7;
-$cyan: #7DCFFF;
-$white: $foreground;
-  
-
-// EWW BAR
-.eww_bar{
-    background-color: $background;
-    padding: .3rem;
-}
-      
-    
-// Calendar
-.cal-box {
-    background-color: $black;
-    font-family: Comic Mono;
-    font-size: 1em;
-    font-weight: bold;
-  
-    .cal-inner-box {
-        padding: 1rem 1rem .2rem;
-  
-        .cal {
-            &.highlight {
-                padding: 10rem;
-            }
-  
-            padding: .8rem .25rem 0rem;
-            margin-left: 10px;
-        }
-    }
+	all: unset;
+	font-family: feather;
+	font-family: Iosevka;
 }
 
-calendar:selected {
-    color: $blue;
+/** Background ***************************************/
+.bg {
+	background-image: url("images/bg.png");
+	background-color: #2e2e1e;
+	opacity: 1;
 }
-  
-  calendar.header {
-  color: $blue;
-  font-weight: bold;
+
+/** Generic window ***********************************/
+.wid_get {
+	background-color: #1e1e2e;
+	border: 1px solid #232336;
 }
-  
-  calendar.button {
-  color: $magenta;
+/** Power buttons ***************************************/
+.btn_logout, .btn_sleep, .btn_restart, .btn_poweroff {
+	font-size : 20px;
+	font-weight : bold;
+	color: #bea1ff;
 }
-  
-  calendar.highlight {
-  color: $magenta;
-  font-weight: bold;
-}
-  
-  calendar:indeterminate {
-  color: $background;
-}
+
