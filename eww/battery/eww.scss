@@ -3,8 +3,7 @@
 /** Global *******************************************/
 *{
 	all: unset;
-	font-family: feather;
-	font-family: Iosevka;
+	font-family: "JetBrains Mono";
 }
 
 /** Background ***************************************/
@@ -19,10 +18,6 @@
 	background-color: #1e1e2e;
 	border: 1px solid #232336;
 }
-/** Power buttons ***************************************/
-.btn_logout, .btn_sleep, .btn_restart, .btn_poweroff {
-	font-size : 20px;
-	font-weight : bold;
-	color: #bea1ff;
-}
+
+
 
