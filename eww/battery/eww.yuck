@@ -7,15 +7,16 @@
 (defpoll RATE :interval "24h" `scripts/battery.sh --rate`)
 
 
-;; battery 
-(defwidget battery [] 
-	(box :class "wid_get" :vexpand "false" :hexpand "false" :orientation "v"
-		(label :class "battery_logo" :text LOGO)
-		(label :class "text" :text CYCLES)
-		(label :class "text" :text STATE)
-		(label :class "text" :text PERC)
-		(label :class "text" :text ENERGY)
-		(label :class "text" :text RATE)))
+(defwidget battery []
+  (box :class "wid_get" :vexpand "false" :hexpand "false"
+    (box :orientation "v" :halign "center" :valign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
+      (box :class "volume_bar" :orientation "v" :space-evenly "false" :vexpand "false" :hexpand "false"
+        (label :class "text" :text LOGO :halign "start")
+        (label :class "text" :text PERC :halign "start")
+        (label :class "text" :text ENERGY :halign "start")
+        (label :class "text" :text RATE :halign "start")
+        (label :class "text" :text STATE :halign "start")
+        (label :halign "start" :class "text" :text CYCLES)))))
 
 
 
