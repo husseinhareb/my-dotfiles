@@ -11,7 +11,7 @@
   (box :class "wid_get" :vexpand "false" :hexpand "false"
     (box :orientation "v" :halign "center" :valign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
       (box :class "volume_bar" :orientation "v" :space-evenly "false" :vexpand "false" :hexpand "false"
-        (label :class "text" :text LOGO :halign "start")
+        (label :class "logo" :text LOGO :halign "center")
         (label :class "text" :text PERC :halign "start")
         (label :class "text" :text ENERGY :halign "start")
         (label :class "text" :text RATE :halign "start")
@@ -24,8 +24,8 @@
 
 ;; battery
 (defwindow battery :stacking "fg" :focusable "false" 
-	    :geometry (geometry :x 1272
+	    :geometry (geometry :x 1664
 							:y 38
-							:width 41
-							:height 255)
+							:width 220
+							:height 215)
 					(battery))
