@@ -1,0 +1,16 @@
+#!/bin/bash
+
+count=0
+
+ID="$(ip link | awk '/state UP/ {print $2}')"
+SSID="$(iwgetid -r)"
+
+truncate_ssid() {
+    local ssid="$1"
+    if [[ ${#ssid} -gt 8 ]]; then
+        echo "${ssid:0:7}.."
+    else
+        echo "$ssid"
+    fi
+}
+
