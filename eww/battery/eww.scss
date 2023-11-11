@@ -1,19 +1,22 @@
 
-
 /** Global *******************************************/
 *{
 	all: unset;
-	font-family: "JetBrains Mono";
+	color: #bea1ff;
 }
 
-/** Background ***************************************/
-.bg {
-	background-image: url("images/bg.png");
-	background-color: #2e2e1e;
-	opacity: 1;
+.logo{
+	font-size: 15px;
+	font-weight: 900;
+	font-family: "JetBrainsMono";
+
 }
 
-/** Generic window ***********************************/
+.text{
+	font-size: 13px;
+	font-weight: bold;
+}
+
 .wid_get {
 	background-color: #1e1e2e;
 	border: 1px solid #232336;
