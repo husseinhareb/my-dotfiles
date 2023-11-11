@@ -1,11 +1,10 @@
+import subprocess
 def create_responsive_art(percentage):
     if not (0 <= percentage <= 100):
         raise ValueError("Percentage must be between 0 and 100")
 
-    # Calculate the number of characters to fill based on the percentage
     filled_chars = int((percentage / 100) * 20)
 
-    # Create the responsive ASCII art
     art = [
         "╔════════════════════╗",
         f"║{'█' * filled_chars}{'░' * (20 - filled_chars)}╚╗",
@@ -14,10 +13,19 @@ def create_responsive_art(percentage):
         "╚════════════════════╝"
     ]
 
-    # Print the responsive ASCII art
     for line in art:
         print(line)
 
-# Example usage:
-percentage_variable = 10
-create_responsive_art(percentage_variable)
+
+
+bash_command = "upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep 'percentage' | awk '{print $2}'"
+
+completed_process = subprocess.run(bash_command, shell=True, capture_output=True, text=True)
+
+battery_percentage = completed_process.stdout.strip()
+
+battery_int = battery_percentage.replace('%','')
+current_battery = int(battery_int)
+
+
+create_responsive_art(current_battery)
