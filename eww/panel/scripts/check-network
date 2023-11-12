@@ -33,5 +33,25 @@ net_stat () {
 if [[ $1 == '--stat' ]]; then
     net_stat | head -n1
 elif [[ $1 == '--icon' ]]; then
-    net_stat | tail -n1
+    signal=$(nmcli -t -f SIGNAL dev wifi list | head -n 1)
+
+    if ((signal < 30)); then
+        signal_symbol="󰤟"
+    elif ((signal < 60)); then
+        signal_symbol="󰤢"
+    elif ((signal < 90)); then
+        signal_symbol="󰤥"
+    else
+        signal_symbol="󰤨" 
+    fi
+
+    echo $signal_symbol
+
+elif [[ $1 == '--status' ]]; then
+
+    if nmcli radio wifi | grep -q "enabled"; then
+        echo "On"
+    else
+        echo "Off"
+    fi
 fi
