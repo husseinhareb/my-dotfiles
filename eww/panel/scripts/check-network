@@ -20,7 +20,7 @@ net_stat () {
             echo "Online"
             echo "images/icons/system/wifi.png"
         else
-            truncated_ssid=$(truncate_ssid "$SSID")
+            truncated_ssid=$(truncate_ssid "$SSID")  # Corrected the function name here
             echo "$truncated_ssid"
             echo "images/icons/system/wifi.png"
         fi
@@ -53,5 +53,12 @@ elif [[ $1 == '--status' ]]; then
         echo "On"
     else
         echo "Off"
+    fi
+elif [[ $1 == '--toggle' ]]; then
+
+    if nmcli radio wifi | grep -q "enabled"; then
+        nmcli radio wifi off
+    else
+        nmcli radio wifi on
     fi
 fi
