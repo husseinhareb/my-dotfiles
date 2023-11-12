@@ -33,7 +33,7 @@
 (defwidget notification [] 
   (box :class "wid_get" :vexpand "false" :hexpand "false" :orientation "h"
     (label :halign "start" :class "notiicon" :wrap "true" :limit-width 15 :text "󰍶")
-    (box :class "wid_get" :vexpand "false" :hexpand "false" :orientation "v"
+    (box :class "wid_get" :vexpand "false" :hexpand "true" :orientation "v"     
       (label :halign "start" :class "disturb" :wrap "true" :limit-width 15 :text "Do not disturb")
       (label :halign "start" :class "onoff" :wrap "true" :limit-width 15 :text NOTI))))
 
