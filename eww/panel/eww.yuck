@@ -32,10 +32,10 @@
 
 (defwidget notification [] 
   (box :class "wid_get" :vexpand "false" :hexpand "false" :orientation "h"
-    (label :halign "start" :class "wifiicon" :wrap "true" :limit-width 15 :text "󰍶")
+    (label :halign "start" :class "notiicon" :wrap "true" :limit-width 15 :text "󰍶")
     (box :class "wid_get" :vexpand "false" :hexpand "false" :orientation "v"
-      (label :halign "center" :class "netstat" :wrap "true" :limit-width 15 :text "Do not disturb")
-      (label :halign "center" :class "netstat" :wrap "true" :limit-width 15 :text NOTI))))
+      (label :halign "start" :class "disturb" :wrap "true" :limit-width 15 :text "Do not disturb")
+      (label :halign "start" :class "onoff" :wrap "true" :limit-width 15 :text NOTI))))
 
 (defwidget wifi [] 
   (box :class "wid_get" :vexpand "false" :hexpand "false" :orientation "h"
