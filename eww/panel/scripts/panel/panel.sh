@@ -43,7 +43,6 @@ high_icon="󰕾"
 # Check if the speaker is muted
 if [ "$mute_status" = "yes" ]; then
     icon=$mute_icon
-    volume="Muted"
 else
     if [ $volume -eq 0 ]; then
         icon=$mute_icon
