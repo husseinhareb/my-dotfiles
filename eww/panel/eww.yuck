@@ -31,15 +31,18 @@
 
 
 (defwidget notification [] 
-	(box :class "wid_get" :vexpand "false" :hexpand "false" 
-		    (button :halign "center" :class "noti" :wrap "true" :limit-width 15 :onclick "scripts/notification/noti.sh --toggle" "${NOTI}")))
+  (box :class "wid_get" :vexpand "false" :hexpand "false" :orientation "h"
+    (label :halign "start" :class "wifiicon" :wrap "true" :limit-width 15 :text "󰍶")
+    (box :class "wid_get" :vexpand "false" :hexpand "false" :orientation "v"
+      (label :halign "center" :class "netstat" :wrap "true" :limit-width 15 :text "Do not disturb")
+      (label :halign "center" :class "netstat" :wrap "true" :limit-width 15 :text NOTI))))
 
 (defwidget wifi [] 
   (box :class "wid_get" :vexpand "false" :hexpand "false" :orientation "h"
     (label :halign "start" :class "wifiicon" :wrap "true" :limit-width 15 :text WIFIICON)
     (box :class "wid_get" :vexpand "false" :hexpand "false" :orientation "v"
-      (label :halign "center" :class "netstat" :wrap "true" :limit-width 15 :text ONOFF)
-      (label :halign "center" :class "netstat" :wrap "true" :limit-width 15 :text NETSTAT))))
+      (label :halign "center" :class "netstat" :wrap "true" :limit-width 15 :text NETSTAT)
+            (label :halign "center" :class "netstat" :wrap "true" :limit-width 15 :text ONOFF))))
 
 
 (defwidget volume [] 
