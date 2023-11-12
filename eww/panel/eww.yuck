@@ -33,10 +33,12 @@
 	(box :class "wid_get" :vexpand "false" :hexpand "false" 
 		    (button :halign "center" :class "noti" :wrap "true" :limit-width 15 :onclick "scripts/notification/noti.sh --toggle" "${NOTI}")))
 
-(defwidget screenshot [] 
-	(box :class "wid_get" :vexpand "false" :hexpand "false" 
-		    (button :halign "center" :class "noti" :wrap "true" :limit-width 15 :onclick "/usr/bin/scrot -s " "󰻛")
-		    (label :halign "center" :class "volume" :wrap "true" :limit-width 15 :text NETSTAT)))
+(defwidget wifi [] 
+  (box :class "wid_get" :vexpand "false" :hexpand "false" :orientation "h"
+    (label :halign "start" :class "wifiicon" :wrap "true" :limit-width 15 :text WIFIICON)
+    (box :class "wid_get" :vexpand "false" :hexpand "false" :orientation "v"  ; Added a colon before "orientation"
+      (label :halign "center" :class "netstat" :wrap "true" :limit-width 15 :text NETSTAT)
+      (label :halign "center" :class "netstat" :wrap "true" :limit-width 15 :text "on"))))
 
 
 (defwidget volume [] 
@@ -106,19 +108,19 @@
 (notification))
 
 
-;; screenshot
-(defwindow screenshot
+;; wifi
+(defwindow wifi
            :monitor 0
            :geometry (geometry :x "1630px"
                                :y "90px"
-                               :width "80px"
+                               :width "120px"
                                :height "40px"
                                :anchor "top left")
            :stacking "fg"
            :reserve (struts :distance "80px" :side "top")
            :windowtype "dock"
            :wm-ignore true
-(screenshot))
+(wifi))
 
 
 ;; volume
@@ -174,7 +176,7 @@
            :monitor 0
            :geometry (geometry :x "1720px"
                                :y "90px"
-                               :width "80px"
+                               :width "120px"
                                :height "40px"
                                :anchor "top left")
            :stacking "fg"
