@@ -36,10 +36,10 @@
 
 (defwidget wifi [] 
   (box :class "wid_get" :vexpand "false" :hexpand "false" :orientation "h"
-    (button :halign "start" :class "wifiicon" :wrap "true" :limit-width 15 "${WIFIICON}" :onclick "scripts/check-network --toggle")
-    (box :class "wid_get" :vexpand "false" :hexpand "false" :orientation "v"  ; Added a colon before "orientation"
-      (label :halign "start" :class "netstat" :wrap "true" :limit-width 15 :text NETSTAT)
-      (label :halign "start" :class "netstat" :wrap "true" :limit-width 15 :text ONOFF))))
+    (label :halign "start" :class "wifiicon" :wrap "true" :limit-width 15 :text WIFIICON)
+    (box :class "wid_get" :vexpand "false" :hexpand "false" :orientation "v"
+      (label :halign "center" :class "netstat" :wrap "true" :limit-width 15 :text ONOFF)
+      (label :halign "center" :class "netstat" :wrap "true" :limit-width 15 :text NETSTAT))))
 
 
 (defwidget volume [] 
@@ -97,9 +97,9 @@
 (defwindow notification
            :monitor 0
            :geometry (geometry 
-                               :x "1810px"
+                               :x "1770px"
                                :y "90px"
-                               :width "80px"
+                               :width "120px"
                                :height "40px"
                                :anchor "top left")
            :stacking "fg"
@@ -177,7 +177,7 @@
            :monitor 0
            :geometry (geometry :x "1720px"
                                :y "90px"
-                               :width "120px"
+                               :width "80px"
                                :height "40px"
                                :anchor "top left")
            :stacking "fg"
