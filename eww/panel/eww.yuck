@@ -22,6 +22,9 @@
 (defpoll MEM_USAGE :interval "1s" `scripts/sys_info.sh --mem`)
 (defpoll DISK_USAGE :interval "1s" `scripts/sys_info.sh --disk`)
 
+;; Network
+(defpoll WIFIICON :interval "10s" `scripts/check-network --icon`)
+(defpoll NETSTAT :interval "10s" `scripts/check-network --stat`)
 
 ;;WIDGETS------------------------------------------------------------------------------------------------------------------------
 
@@ -32,7 +35,8 @@
 
 (defwidget screenshot [] 
 	(box :class "wid_get" :vexpand "false" :hexpand "false" 
-		    (button :halign "center" :class "noti" :wrap "true" :limit-width 15 :onclick "/usr/bin/scrot -s " "󰻛")))
+		    (button :halign "center" :class "noti" :wrap "true" :limit-width 15 :onclick "/usr/bin/scrot -s " "󰻛")
+		    (label :halign "center" :class "volume" :wrap "true" :limit-width 15 :text NETSTAT)))
 
 
 (defwidget volume [] 
@@ -77,7 +81,12 @@
 					(box :class "res_circle" :orientation "v" :valign "center" :halign "center"
 						(circular-progress :class "res_mem" :value MEM_USAGE :thickness 5
 							(label :class "res_circle_small" :text "MEMORY")))
-					(label :class "res_text" :valign "end" :halign "center" :text "${MEM_USAGE}%"))))
+					(label :class "res_text" :valign "end" :halign "center" :text "${MEM_USAGE}%"))
+                    	(box :class "res_box" :orientation "v" :valign "center" :halign "center" :spacing 15 :space-evenly "false"
+					(box :class "res_circle" :orientation "v" :valign "center" :halign "center"
+						(circular-progress :class "res_mem" :value MEM_USAGE :thickness 5
+							(label :class "res_circle_small" :text "MEMORY")))
+					(label :class "res_text" :valign "end" :halign "center" :text "${DISK_USAGE}%"))))
 
 
 ;;WINDOWS------------------------------------------------------------------------------------------------------------------------
@@ -194,8 +203,8 @@
 (defwindow resources
            :monitor 0
            :geometry (geometry :x "1630px"
-                               :y "480px"
-                               :width "220px"
+                               :y "290px"
+                               :width "260px"
                                :height "262px"
                                :anchor "top left")
            :stacking "fg"
