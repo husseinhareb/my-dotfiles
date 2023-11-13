@@ -30,20 +30,20 @@
 ;;WIDGETS------------------------------------------------------------------------------------------------------------------------
 
 
-(defwidget notification [] 
-  (box :class "wid_get" :vexpand "false" :hexpand "false" :orientation "h"
-    (label :halign "start" :class "notiicon" :wrap "true" :limit-width 15 :text "󰍶")
-    (box :class "wid_get" :vexpand "false" :hexpand "true" :orientation "v"     
-      (label :halign "start" :class "disturb" :wrap "true" :limit-width 15 :text "Do not disturb")
-      (label :halign "start" :class "onoff" :wrap "true" :limit-width 15 :text NOTI))))
 
 (defwidget wifi [] 
   (box :class "wid_get" :vexpand "false" :hexpand "false" :orientation "h"
-    (label :halign "start" :class "wifiicon" :wrap "true" :limit-width 15 :text WIFIICON)
-    (box :class "wid_get" :vexpand "false" :hexpand "false" :orientation "v"
-      (label :halign "center" :class "netstat" :wrap "true" :limit-width 15 :text NETSTAT)
-            (label :halign "center" :class "netstat" :wrap "true" :limit-width 15 :text ONOFF))))
+    (label :halign "wifiicon" :class "wifiicon" :wrap "true" :limit-width 15 :text WIFIICON)
+    (box :class "namenstatus" :vexpand "false" :hexpand "false" :orientation "v"
+      (label :halign "start" :class "netstat" :wrap "true" :limit-width 15 :text NETSTAT)
+            (label :halign "start" :class "netstat" :wrap "true" :limit-width 15 :text ONOFF))))
 
+(defwidget notification [] 
+  (box :class "wid_get" :vexpand "false" :hexpand "false" :orientation "h"
+    (label :halign "start" :class "notiicon" :wrap "true" :limit-width 15 :text "󰍶")
+    (box :class "namenstatus" :vexpand "false" :hexpand "true" :orientation "v"     
+      (label :halign "start" :class "disturb" :wrap "true"  :text "Do not disturb")
+      (label :halign "start" :class "onoff" :wrap "true"  :text NOTI))))
 
 (defwidget volume [] 
 	(box :class "wid_get" :vexpand "false" :hexpand "false" 
@@ -87,12 +87,7 @@
 					(box :class "res_circle" :orientation "v" :valign "center" :halign "center"
 						(circular-progress :class "res_mem" :value MEM_USAGE :thickness 5
 							(label :class "res_circle_small" :text "MEMORY")))
-					(label :class "res_text" :valign "end" :halign "center" :text "${MEM_USAGE}%"))
-                    	(box :class "res_box" :orientation "v" :valign "center" :halign "center" :spacing 15 :space-evenly "false"
-					(box :class "res_circle" :orientation "v" :valign "center" :halign "center"
-						(circular-progress :class "res_mem" :value MEM_USAGE :thickness 5
-							(label :class "res_circle_small" :text "MEMORY")))
-					(label :class "res_text" :valign "end" :halign "center" :text "${DISK_USAGE}%"))))
+					(label :class "res_text" :valign "end" :halign "center" :text "${MEM_USAGE}%"))))
 
 
 ;;WINDOWS------------------------------------------------------------------------------------------------------------------------
@@ -117,7 +112,7 @@
            :monitor 0
            :geometry (geometry :x "1630px"
                                :y "90px"
-                               :width "120px"
+                               :width "130px"
                                :height "40px"
                                :anchor "top left")
            :stacking "fg"
