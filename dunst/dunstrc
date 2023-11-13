@@ -10,7 +10,6 @@
     indicate_hidden = yes
     shrink = no
     separator_height = 2
-    padding = 15
     horizontal_padding = 15
     text_icon_padding = 15
     frame_width = 2
