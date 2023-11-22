@@ -8,17 +8,30 @@
 /** Bar ***********************************/
 .wid_get {
 	background-color: #1E1D2D;
-	border: 1px solid #fe0000;
+	border-radius: 6px;
 }
  
+.wifiicon,.notiicon{
+	margin: 0px 30px 0px 0px;
+}
 
 
-.noti{
-    background-repeat: no-repeat;
-	background-size: 40px;
-	min-height: 40px;
-	min-width: 40px;
-	color: white
+.namenstatus{
+	margin: 0px 0px 0px -24px;
+}
+.netstat{
+	font-size: 12px;
+}
+.hello {
+	margin: 0px 0px 0px -30px;
+}
+.disturb{
+	font-size: 12px;
+	margin: 0px 0px 0px -20px;
+}
+.notiicon{
+	margin: 10px 0px 0px 0px;
+	font-size: 15px;
 }
 
 .screenshot{
@@ -80,7 +93,7 @@
 
 
 .res_box {
-	background-color: rgb(41, 40, 53);
+	background-color: #1E1D2D;
 	border-radius: 12px;
 	padding: 14px 18px 14px 18px;
 }
@@ -96,7 +109,7 @@
 	background-color: #2a2433;
 	border: 0px solid #161616;
 	border-radius: 100%;
-	padding: 12px;
+	padding: 34px;
 }
 
 .res_text {
@@ -117,3 +130,78 @@
 	color: #6f57f5;
 }
 
+
+
+/** Home folders ***************************************/
+.hddbox {
+	background-color: #3A404C;
+	border-radius: 10px;
+	margin : 14px;
+}
+.hddicon {
+	color: #81A1C1;
+	font-family: Iosevka Nerd Font;
+	font-size : 60px;
+	font-weight : normal;
+	margin : 25px 20px 25px 40px;
+}
+.hdd_label {
+	color: #E5E9F0;
+	font-size : 30px;
+	font-weight : bold;
+	margin : 0px 0px 0px 15px;
+}
+.fs_sep {
+	color: #2E3440;
+	font-size : 36px;
+	font-weight : bold;
+}
+
+.iconfolder1, .iconfolder2, .iconfolder3, .iconfolder4, .iconfolder5, .iconfolder6  {
+	font-family: Iosevka Nerd Font;
+	font-size : 24px;
+	font-weight : normal;
+	margin : 0px 0px 0px 35px;
+}
+.iconfolder1 {
+	color: #BF616A;
+}
+.iconfolder2 {
+	color: #A3BE8C;
+}
+.iconfolder3 {
+	color: #EBCB8B;
+}
+.iconfolder4 {
+	color: #81A1C1;
+}
+.iconfolder5 {
+	color: #B48EAD;
+}
+.iconfolder6 {
+	color: #88C0D0;
+}
+
+.label_folder1, .label_folder2, .label_folder3, .label_folder4, .label_folder5, .label_folder6  {
+	font-size : 18px;
+	font-weight : normal;
+	margin : 0px 0px 0px 20px;
+}
+.label_folder1 {
+	color: #BF616A;
+}
+.label_folder2 {
+	color: #A3BE8C;
+}
+.label_folder3 {
+	color: #EBCB8B;
+}
+.label_folder4 {
+	color: #81A1C1;
+}
+.label_folder5 {
+	color: #B48EAD;
+}
+.label_folder6 {
+	color: #88C0D0;
+}
