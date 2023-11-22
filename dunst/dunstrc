@@ -14,7 +14,8 @@
     icon_corner_radius=6
     horizontal_padding = 10
     text_icon_padding = 10
-    frame_width = 7
+    frame_width = 2
+    corner_radius = 10
     frame_color = "#8f5eff"
     separator_color = frame
     transparency = 0
@@ -52,17 +53,17 @@
     per_monitor_dpi = false
 
 [urgency_low]
-    background = "#181825AA"
+    background = "#181825"
     foreground = "#bea1ff"
     timeout = 10
 
 [urgency_normal]
-    background = "#181825AA"
+    background = "#181825"
     foreground = "#bea1ff"
     timeout = 10
 
 [urgency_critical]
-    background = "#181825AA"
+    background = "#181825"
     foreground = "#bea1ff"
     frame_color = "#F38BA8"
     timeout = -1
