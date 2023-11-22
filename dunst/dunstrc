@@ -1,7 +1,7 @@
 [global]
     follow = mouse
     width = 350
-    offset = 10x40
+    offset = 790x35
     progress_bar = true
     progress_bar_height = 10
     progress_bar_frame_width = 1
@@ -9,13 +9,15 @@
     progress_bar_max_width = 400
     indicate_hidden = yes
     shrink = no
-    separator_height = 2
-    padding = 15
-    horizontal_padding = 15
-    text_icon_padding = 15
-    frame_width = 2
-    frame_color = "#9399b2"
+    separator_height = 5
+    padding = 16
+    icon_corner_radius=6
+    horizontal_padding = 10
+    text_icon_padding = 10
+    frame_width = 7
+    frame_color = "#8f5eff"
     separator_color = frame
+    transparency = 0
     sort = yes
     idle_threshold = 120
     font = JetBrains Mono Nerd Font Medium 10
@@ -33,7 +35,7 @@
     show_indicators = yes
     icon_position = left
     min_icon_size = 0
-    max_icon_size = 32
+    max_icon_size = 60
     sticky_history = yes
     history_length = 20
     always_run_script = true
@@ -51,17 +53,17 @@
 
 [urgency_low]
     background = "#181825AA"
-    foreground = "#CDD6F4"
+    foreground = "#bea1ff"
     timeout = 10
 
 [urgency_normal]
     background = "#181825AA"
-    foreground = "#CDD6F4"
+    foreground = "#bea1ff"
     timeout = 10
 
 [urgency_critical]
     background = "#181825AA"
-    foreground = "#F38BA8"
+    foreground = "#bea1ff"
     frame_color = "#F38BA8"
     timeout = -1
     format = "<b>%s</b>\n%b"
