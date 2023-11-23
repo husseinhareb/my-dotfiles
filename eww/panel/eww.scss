@@ -12,15 +12,23 @@
 }
  
 .wifiicon,.notiicon{
-	margin: 0px 30px 0px 0px;
+	color: #8f5eff;
+	margin: 0px 28px 0px 0px;
+	background-color: #bea1ff;
+	border-top-right-radius: 6px;
+	border-bottom-right-radius: 6px;
+	font-size: 16px;
 }
 
 
 .namenstatus{
 	margin: 0px 0px 0px -24px;
+	color: #8f5eff;
+	font-weight: bold;
 }
 .netstat{
 	font-size: 12px;
+	font-weight: bold;
 }
 .hello {
 	margin: 0px 0px 0px -30px;
@@ -47,24 +55,25 @@
 	font-weight : normal;
 }
 .iconmic {
-	color: #f6f6ff;
+	color: #bea1ff;
 	margin: 10px;
 }
 .iconvolume {
-	color: #f6f6ff;
+	color: #bea1ff;
 	margin: 10px;
 }
 .iconbrightness {
-	color: #f6f6ff;
+	color: #bea1ff;
 	margin: 10px;
 }
 
 
 .volume_bar, .brightness_bar, scale trough {
 	all: unset;
-	background-color: #454547;
+	background-color: #bea1ff;
 	min-height: 10px;
 	min-width: 180px;
+	border-radius: 10px;
 }
 
 .volume_bar, .brightness_bar, scale trough highlight {
@@ -73,13 +82,13 @@
 }
 
 .volume_bar scale trough highlight {
-	background-color: #f6f6ff;
+	background-color: #8f5eff;
 }
 .brightness_bar scale trough highlight {
-	background-color: #f6f6ff;
+	background-color: #8f5eff;
 }
 .mic_bar scale trough highlight {
-	background-color: #f6f6ff;
+	background-color: #8f5eff;
 }
 .volume_bar, .brightness_bar, .mic_bar {
 	// Other styles...
@@ -88,7 +97,8 @@
   }
   
 .volume{
-	color: white;
+	color: #bea1ff;
+	font-weight: bold;
 }
 
 
@@ -99,7 +109,7 @@
 }
 
 .res_circle {
-	background-color: #e7e2e2;
+	background-color: #dccdfb;
 	border: 0px solid #161616;
 	border-radius: 100%;
 	padding: 0px;
@@ -110,12 +120,13 @@
 	border: 0px solid #161616;
 	border-radius: 100%;
 	padding: 34px;
+	font-weight: bold;
 }
 
 .res_text {
-	background-color: #E6E1D7;
+	background-color: #bea1ff;
 	border: 1px solid #161616;
-	border-radius: 16px;
+	border-radius: 6px;
 	font-size : 14px;
 	padding: 0px 8px 0px 8px;
 	margin: 0px 0px 0px 0px;
@@ -123,23 +134,23 @@
 }
 
 .res_cpu {
-	color: #FD6B85;
+	color: #8f5eff;
 }
 
 .res_mem {
-	color: #6f57f5;
+	color: #8f5eff;
 }
 
 
 
 /** Home folders ***************************************/
 .hddbox {
-	background-color: #3A404C;
+	background-color: #bea1ff;
 	border-radius: 10px;
 	margin : 14px;
 }
 .hddicon {
-	color: #81A1C1;
+	color: #8f5eff;
 	font-family: Iosevka Nerd Font;
 	font-size : 60px;
 	font-weight : normal;
@@ -162,46 +173,12 @@
 	font-size : 24px;
 	font-weight : normal;
 	margin : 0px 0px 0px 35px;
-}
-.iconfolder1 {
-	color: #BF616A;
-}
-.iconfolder2 {
-	color: #A3BE8C;
-}
-.iconfolder3 {
-	color: #EBCB8B;
-}
-.iconfolder4 {
-	color: #81A1C1;
-}
-.iconfolder5 {
-	color: #B48EAD;
-}
-.iconfolder6 {
-	color: #88C0D0;
+	color: #8f5eff;
 }
 
 .label_folder1, .label_folder2, .label_folder3, .label_folder4, .label_folder5, .label_folder6  {
 	font-size : 18px;
 	font-weight : normal;
 	margin : 0px 0px 0px 20px;
-}
-.label_folder1 {
-	color: #BF616A;
-}
-.label_folder2 {
-	color: #A3BE8C;
-}
-.label_folder3 {
-	color: #EBCB8B;
-}
-.label_folder4 {
-	color: #81A1C1;
-}
-.label_folder5 {
-	color: #B48EAD;
-}
-.label_folder6 {
-	color: #88C0D0;
+	color: #bea1ff;
 }

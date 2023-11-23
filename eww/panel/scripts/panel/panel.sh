@@ -32,7 +32,7 @@ if [ "$1" == "--volume" ]; then
 volume=$(pactl list sinks | grep 'Volume:' | head -n 1 | awk '{print $5}' | sed 's/%//')
 
 # Get mute status
-mute_status=$(pactl list sinks | grep 'Mute:' | awk '{print $2}')
+mute_status=$(pactl list sinks | grep 'Mute:' | awk '{print $2}' | head -n 1)
 
 # Define volume icons
 mute_icon="󰖁"
@@ -43,21 +43,22 @@ high_icon="󰕾"
 # Check if the speaker is muted
 if [ "$mute_status" = "yes" ]; then
     icon=$mute_icon
+    echo "$icon muted"
 else
     if [ $volume -eq 0 ]; then
         icon=$mute_icon
+        echo "$icon $volume%"
     elif [ $volume -lt 30 ]; then
         icon=$low_icon
+        echo "$icon $volume%"
     elif [ $volume -lt 70 ]; then
         icon=$medium_icon
+        echo "$icon $volume%"
     else
         icon=$high_icon
+        echo "$icon $volume%"
     fi
 fi
-
-# Display the volume icon and level
-echo "$icon $volume%"
-
 fi
 
 if [ "$1" == "--weather" ]; then

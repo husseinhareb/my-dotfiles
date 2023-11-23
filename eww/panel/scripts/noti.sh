@@ -4,9 +4,9 @@ status=$(dunstctl is-paused)
 
 if [ "$1" == "--status" ]; then
     if [ "$status" == "true" ]; then
-        echo "󰂛"
+        echo "On"
     else
-        echo "󰂚"
+        echo "Off"
     fi
 elif [ "$1" == "--toggle" ]; then
     if [ "$status" == "true" ]; then

@@ -10,7 +10,7 @@
 ;;Mic
 (defpoll MIC :interval "1s" `scripts/panel/panel.sh --mic`)
 
-(defpoll NOTI :interval "1s" `scripts/notification/noti.sh --status`)
+(defpoll NOTI :interval "1s" `scripts/noti.sh --status`)
 ;; System vars
 (defpoll VOLUME_LEVEL :interval "1s" `scripts/panel/system.sh volume`)
 (defpoll BRIGHTNESS_LEVEL :interval "1s" `scripts/panel/system.sh brightness`)
@@ -20,7 +20,6 @@
 ;; Resources vars
 (defpoll CPU_USAGE :interval "1s" `scripts/sys_info.sh --cpu`)
 (defpoll MEM_USAGE :interval "1s" `scripts/sys_info.sh --mem`)
-(defpoll DISK_USAGE :interval "1s" `scripts/sys_info.sh --disk`)
 
 ;; Network
 (defpoll WIFIICON :interval "10s" `scripts/check-network --icon`)
@@ -37,7 +36,7 @@
 
 (defwidget wifi [] 
   (box :class "wid_get" :vexpand "false" :hexpand "false" :orientation "h"
-    (label :halign "wifiicon" :class "wifiicon" :wrap "true" :limit-width 15 :text WIFIICON)
+    (button  :class "wifiicon" :wrap "true" :limit-width 15 :onclick "scripts/check-network --toggle" "${WIFIICON}")
     (box :class "namenstatus" :vexpand "false" :hexpand "false" :orientation "v"
       (label :halign "start" :class "netstat" :wrap "true" :limit-width 15 :text NETSTAT)
             (label :halign "start" :class "netstat" :wrap "true" :limit-width 15 :text ONOFF))))
@@ -45,7 +44,7 @@
 
 (defwidget notification [] 
   (box :class "wid_get" :vexpand "false" :hexpand "false" :orientation "h"
-    (label :halign "wifiicon" :class "wifiicon" :wrap "true" :limit-width 15 :text "󰍶")
+    (button  :class "wifiicon" :wrap "true"   :onclick "scripts/noti.sh --toggle" "󰍶")
     (box :class "namenstatus" :vexpand "false" :hexpand "false" :orientation "v"
       (label :halign "start" :class "dnd" :wrap "true" :limit-width 15 :text "DnD")
             (label :halign "start" :class "netstat" :wrap "true" :limit-width 15 :text NOTI))))

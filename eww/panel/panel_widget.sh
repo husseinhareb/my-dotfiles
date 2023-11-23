@@ -13,7 +13,7 @@ fi
 
 ## Open widgets 
 run_eww() {
-	${EWW} --config "$CFG" open-many  resources system notification wifi volume brightness mic 
+	${EWW} --config "$CFG" open-many  resources system notification wifi volume brightness mic folders
 }
 
 ## Launch or close widgets accordingly
@@ -21,6 +21,6 @@ if [[ ! -f "$FILE" ]]; then
 	touch "$FILE"
 	run_eww
 else
-	${EWW} --config "$CFG" close  resources system notification wifi volume brightness mic 
+	${EWW} --config "$CFG" close  resources system notification wifi volume brightness mic folders
 	rm "$FILE"
 fi
