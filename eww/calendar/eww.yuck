@@ -1,8 +1,8 @@
-(defpoll calendar_day :interval "10h"
+(defpoll calendar_day :interval "1m"
     "date '+%d'")
-(defpoll calendar_month :interval "10h"
+(defpoll calendar_month :interval "1m"
     "scripts/calendar")
-(defpoll calendar_year :interval "10h"
+(defpoll calendar_year :interval "1m"
     "date '+%Y'")
 
 ;; Calendar Widgets ;;
@@ -20,8 +20,8 @@
 
 ;; Calendar Windows ;;
 (defwindow calendar
-    :geometry (geometry :x "50px"
+    :geometry (geometry :x "840px"
                         :y "35px"
-                        :width "250px"
+                        :width "220px"
                         :height "60px")
 (cal))

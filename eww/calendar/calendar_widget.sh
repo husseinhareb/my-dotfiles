@@ -21,6 +21,6 @@ if [[ ! -f "$FILE" ]]; then
 	touch "$FILE"
 	run_eww
 else
-	${EWW} --config "$CFG" close  calendar 
+	${EWW} --config "$CFG" close  calendar place 
 	rm "$FILE"
 fi

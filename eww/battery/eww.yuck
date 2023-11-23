@@ -1,10 +1,10 @@
 ;;battery vars
-(defpoll LOGO :interval "1m" `scripts/logo.sh`)
-(defpoll CYCLES :interval "24h" `scripts/battery.sh --cycles`)
-(defpoll STATE :interval "24h" `scripts/battery.sh --state`)
-(defpoll PERC :interval "24h" `scripts/battery.sh --perc`)
-(defpoll ENERGY :interval "24h" `scripts/battery.sh --energy`)
-(defpoll RATE :interval "24h" `scripts/battery.sh --rate`)
+(defpoll LOGO :interval "1s" `scripts/logo.sh`)
+(defpoll CYCLES :interval "1s" `scripts/battery.sh --cycles`)
+(defpoll STATE :interval "1s" `scripts/battery.sh --state`)
+(defpoll PERC :interval "1s" `scripts/battery.sh --perc`)
+(defpoll ENERGY :interval "1s" `scripts/battery.sh --energy`)
+(defpoll RATE :interval "1s" `scripts/battery.sh --rate`)
 
 
 (defwidget battery []
