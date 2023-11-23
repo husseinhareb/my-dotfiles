@@ -1,7 +1,7 @@
-;; power buttons
+;;; power buttons
 (defwidget powermenu [] 
 	(box :class "wid_get" :vexpand "false" :hexpand "false" :orientation "v"
-		(button :class "btn_logout" :onclick "qtile --exit" "")
+		(button :class "btn_logout" :onclick "qtile cmd-obj -o cmd -f shutdown" "")
 		(button :class "btn_sleep" :onclick "systemctl suspend" "")
 		(button :class "btn_restart" :onclick "systemctl reboot" "")
 		(button :class "btn_poweroff" :onclick "systemctl poweroff" "")))
