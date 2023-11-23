@@ -1,0 +1,49 @@
+#!/bin/bash
+
+PLAYER="playerctld"
+
+# Function to convert time format (HH:MM:SS) to seconds
+time_to_seconds() {
+    local time=$1
+    local hours=$(echo $time | cut -d ':' -f 1)
+    local minutes=$(echo $time | cut -d ':' -f 2)
+    local seconds=$(echo $time | cut -d ':' -f 3)
+    echo $((hours*3600 + minutes*60 + seconds))
+}
+
+# Function to calculate percentage
+calculate_percentage() {
+    local current_position=$1
+    local total_duration=$2
+    echo $((current_position * 100 / total_duration))
+}
+
+PLAYERCTL_STATUS=$(playerctl --player=$PLAYER status 2>/dev/null)
+EXIT_CODE=$?
+
+if [ $EXIT_CODE -eq 0 ]; then
+    STATUS=$PLAYERCTL_STATUS
+else
+    STATUS="--:-- / --:--"
+fi
+
+if [ "$STATUS" = "Stopped" ]; then
+    echo "--:-- / --:--"
+elif [ "$STATUS" = "Paused" ]; then
+    POSITION=$(playerctl --player=$PLAYER metadata --format "{{ duration(position) }}")
+    DURATION=$(playerctl --player=$PLAYER metadata --format "{{ duration(mpris:length) }}")
+    POSITION_SECONDS=$(time_to_seconds $POSITION)
+    DURATION_SECONDS=$(time_to_seconds $DURATION)
+    PERCENTAGE=$(calculate_percentage $POSITION_SECONDS $DURATION_SECONDS)
+    echo "$PERCENTAGE"
+elif [ "$STATUS" = "--:-- / --:--" ]; then
+    echo "$STATUS"
+else
+    POSITION=$(playerctl --player=$PLAYER metadata --format "{{ duration(position) }}")
+    DURATION=$(playerctl --player=$PLAYER metadata --format "{{ duration(mpris:length) }}")
+    POSITION_SECONDS=$(time_to_seconds $POSITION)
+    DURATION_SECONDS=$(time_to_seconds $DURATION)
+    PERCENTAGE=$(calculate_percentage $POSITION_SECONDS $DURATION_SECONDS)
+    echo "$PERCENTAGE"
+fi
+

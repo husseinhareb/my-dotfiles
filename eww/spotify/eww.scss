@@ -8,7 +8,7 @@
 /** Bar ***********************************/
 .wid_get {
 	background-color: #1e1e2e;
-	border: 1px solid #232336;
+	border-radius: 5px;
 }
  
 
@@ -23,34 +23,52 @@
 }
 
 .song {
-	color: #8FBCBB;
+	color: #8f5eff;
 	font-size : 20px;
 	font-weight : bold;
 }
 
 .artist {
-	color: #EBCB8B;
+	color: #bea1ff;
 	font-size : 20px;
 	font-weight : normal;
 }
 
 
 .prev {
-	color: #A3BE8C;
+	color: #bea1ff;
 	font-weight: normal;
 	font-size: 32px;
 }
 .play {
-	color: #A3BE8C;
+	color: #bea1ff;
 	font-size: 48px;
 }
 .next {
-	color: #A3BE8C;
+	color: #bea1ff;
 	font-weight: normal;
 	font-size:32px
 }
 
-.cava{
+
+/*.cava{
 	color: #6290C8;
+}*/
+
+scale trough{
+	all: unset;
+	background-color: #454547;
+	min-height: 10px;
+	min-width: 180px;
+	margin: 10px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	border-radius: 12px;
+
 }
 
+scale trough highlight{
+	all: unset;
+	border-radius: 12px;
+	background-color: #bea1ff;
+}
