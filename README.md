@@ -18,7 +18,7 @@ Dunst and a simple battery widget setup.
 ![Screenshot from 2023-11-23 17-08-33](https://github.com/husseinhareb/my-dotfiles/assets/88323940/85866b42-3156-4e6e-a580-88c0848f2d30)
 Mauve rofi setup ([Not mine](https://github.com/m4xshen/dotfiles/tree/mauve/rofi/rofi)).
 
-Adding to that i created a sweet animations using a picom fork [picom-pijulius](https://github.com/pijulius/picom) that can be seen on reddit [here].
+Adding to that i created a sweet animations using a picom fork [picom-pijulius](https://github.com/pijulius/picom) that can be seen on reddit [here](https://www.reddit.com/r/unixporn/comments/1829ew5/qtile_i_like_purple/?utm_source=share&utm_medium=web2x&context=3).
 
 You are welcome to copy any of my dotfiles or scripts you come across here.However, I advise against attempting to duplicate the entire setup, as it lacks organization and is tailored to my specific requirements.
 
