@@ -1,6 +1,6 @@
 # My-dotfiles
 
-My Arch Linux Setup.
+My Linux Setup.
 
 ![Screenshot from 2023-11-23 16-46-09](https://github.com/husseinhareb/my-dotfiles/assets/88323940/67b752df-6ccb-421d-83fc-94b8a80dae20)
 You can find the wallpaper [here](https://github.com/husseinhareb/my-dotfiles/blob/main/Wallpapers/vagabond-sword-swing.png).
